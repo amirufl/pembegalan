@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{lokasi.edit}">Ubah Lokasi</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link data-th-replace="layout :: head"/>
+    </head>
+    <body>
+        <div th:replace="layout :: navbar"></div>
+        <br/><br/><br/>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-xs-center" th:text="#{lokasi.edit}">Ubah Lokasi</h2>
+                </div>
+                <div class="card-block">
+                    <form th:action="@{/lokasi/form}" method="post" th:object="${lokasi}">
+                        <input type="hidden" name="id" th:field="*{id}" />
+                        <div><label> Kota: <input type="text" name="kota" th:field="*{kota}"/></label></div>
+                        <div><label> Hari: <input type="text" name="hari" th:field="*{hari}"/></label></div>
+                        <div><label> Waktu: <input type="text" name="waktu" th:field="*{waktu}"/></label></div>
+                        <div><input type="submit" value="Simpan" /> <a th:href="@{/lokasi/list}">Kembali</a> </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div data-th-replace="layout :: footer"></div>
+    </body>
+</html>
